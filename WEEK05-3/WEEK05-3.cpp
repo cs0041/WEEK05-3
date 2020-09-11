@@ -1,55 +1,45 @@
-#include <iostream>
-
-using namespace std;
-
+#include <stdio.h>
+#include <stdlib.h>
 int main()
 {
-    int a;
-    cin >> a;
-    int c[100];
-    for (int i = 0; i < a; i++)
+    int i = 1, a;
+    scanf_s("%d", &a);
+    while (i <= a)
     {
-        cin >> c[i];
-    }
-    for (int i = 0; i < a - 1; i++)
-    {
-        bool out = false;
-        if(i == a-2)
+        if (i % 3 == 0 && i % 5 == 0)
         {
-            out = true;
+            printf("CozaLoza\t");
         }
-        for (int j = 0; j < a - 1; j++)
+        else
         {
-            if (c[j] > c[j + 1])
+            if (i % 3 == 0)
             {
-                int p = c[j];
-                c[j] = c[j + 1];
-                c[j + 1] = p;
-                out = true;
+                printf("Coza\t");
             }
-        }
-        if (out)
-        {
-            for (int i = 0; i < a; i++)
+            else
             {
-                cout << c[i] << " ";
-            }
-            cout << endl;
-            int num = 0;
-            for (int i = 0; i < a - 1; i++)
-            {
-
-                if (c[i] < c[i + 1])
+                if (i % 5 == 0)
                 {
-                    num++;
+                    printf("Loza\t");
+                }
+                else
+                {
+                    if (i % 7 == 0)
+                    {
+                        printf("Woza\t");
+                    }
+                    else
+                    {
+                        printf("%d\t", i);
+                    }
                 }
             }
-            if(num==a-1)
-            {
-                return 0;
-            }
         }
-
+        if (i % 11 == 0)
+        {
+            printf("\n");
+        }
+        i++;
     }
     return 0;
 }
